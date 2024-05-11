@@ -3,7 +3,7 @@ conky.config = {
     alignment = 'bottom_left',
     background = false,
     border_width = 0,
-    border_inner_margin = 8,
+    border_inner_margin = 6,
     cpu_avg_samples = 2,
     default_color = '#eeeeee',
     color1 = 'e0ffff',
@@ -20,7 +20,7 @@ conky.config = {
     gap_x = 72,
     gap_y = 72,
     minimum_height = 240,
-    minimum_width = 180,
+    minimum_width = 150,
     net_avg_samples = 2,
     no_buffers = true,
     out_to_console = false,
@@ -44,33 +44,33 @@ conky.config = {
 }
 
 conky.text = [[
-${font Marske:pixelsize=20}$alignc$sysname ${font}
+${font Marske:pixelsize=18}$alignc$sysname ${font}
 ${color 7affff}$alignc$kernel
-
 ${color grey}Uptime$alignr$color $uptime
 
 ${color grey}RAM:$color $mem/$memmax $memperc% 
-${membar 6, 188}
+${membar 4 }
 
-${color grey}WiFi: ${downspeedf wlp0s20u4} ${alignr}${downspeedgraph wlp0s20u4 10, 100 7affff BEBEBE -t -l}
+${color grey}Net: ${downspeedf wlp0s20f0u6} ${alignr}${downspeedgraph wlp0s20f0u6 10, 96 7affff BEBEBE -t -l}
 
-${cpubar cpu1 5, 42} ${cpubar cpu2 5, 42} ${cpubar cpu3 5, 42} ${cpubar cpu4 5, 42}
-${color grey}CPU :$color $cpu% 
-${color grey}Freq:$color $freq MHz
-${color grey}Temp: $color${acpitemp} °C
+${color grey}CPU   ${cpubar cpu1 4, 16} ${cpubar cpu2 4, 16} ${cpubar cpu3 4, 16} ${cpubar cpu4 4, 16} ${cpubar cpu5 4, 16} ${cpubar cpu6 4, 16} ${cpubar cpu7 4, 16} ${cpubar cpu8 4, 16} 
+${color grey}Load $color $cpu% 
+${color grey}Freq $color $freq MHz
+${color grey}Temp  +$color${acpitemp} °C
 
 ${color white}Name                CPU%   MEM%
 ${color lightgrey}${top name 1}  ${top cpu 1} ${top mem 1}
 ${color lightgrey}${top name 2}  ${top cpu 2} ${top mem 2}
 ${color lightgrey}${top name 3}  ${top cpu 3} ${top mem 3}
 ${color lightgrey}${top name 4}  ${top cpu 4} ${top mem 4}
-${color lightgrey}${top name 5}  ${top cpu 5} ${top mem 5}
 
 ${color white}File systems:
-/     $color${fs_used /}/${fs_size /} ${fs_bar 5 /}
-/home $color${fs_used /home}/${fs_size /home} ${fs_bar 5 /home}
-${color 7affff}/swap${color 7affff} $swap/$swapmax ${swapbar 5}
+/     $color${fs_used /}/${fs_size /} ${fs_bar 4 /}
+${color 7affff}/swap${color 7affff} $swap/$swapmax ${swapbar 4}
+/home $color${fs_used /home}/${fs_size /home} ${fs_bar 4 /home}
+/arch $color${fs_used /run/media/ermlv/arch10}/${fs_size /run/media/ermlv/arch10} ${fs_bar 4 /run/media/ermlv/arch10}
 
 ${color 999999}${font Marske:pixelsize=36}$alignc${time %d  %m  %Y}
-${color 7affff}${font Marske:pixelsize=36}     ${time %H %M }${font Marske:pixelsize=20}${time %S}
+${color 7affff}${font Marske:pixelsize=36}      ${time %H %M }${font Marske:pixelsize=20}${time %S}
 ]];
+
